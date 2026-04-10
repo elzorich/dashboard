@@ -1,0 +1,12 @@
+<button
+  [disabled]="disabled() || loading()"
+  [attr.aria-busy]="loading() || null"
+  [attr.aria-disabled]="disabled() || null"
+>
+  @if (loading()) {
+    <span class="spinner" aria-hidden="true"></span>
+  }
+  <span class="label" [class.visually-hidden]="loading()">
+    <ng-content />
+  </span>
+</button>
