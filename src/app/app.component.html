@@ -1,12 +1,14 @@
 <main class="app-shell">
   <header class="page-header">
     <h1>🚀 Design System Playground</h1>
-    <p>Task 2.1 — Button Component Showcase</p>
+    <p>Task 2.1 + 2.2 — Button & Input Component Showcase</p>
   </header>
 
-  <!-- ── Variants ── -->
+  <!-- ══════════════════════════════════════════════
+       BUTTON SHOWCASE
+  ══════════════════════════════════════════════ -->
   <section class="showcase-section">
-    <h2>Variants</h2>
+    <h2>Button — Variants</h2>
     <div class="button-row">
       <ui-button variant="primary">Primary</ui-button>
       <ui-button variant="secondary">Secondary</ui-button>
@@ -14,9 +16,8 @@
     </div>
   </section>
 
-  <!-- ── Sizes ── -->
   <section class="showcase-section">
-    <h2>Sizes</h2>
+    <h2>Button — Sizes</h2>
     <div class="button-row align-end">
       <ui-button variant="primary" size="sm">Small</ui-button>
       <ui-button variant="primary" size="md">Medium</ui-button>
@@ -24,9 +25,8 @@
     </div>
   </section>
 
-  <!-- ── States ── -->
   <section class="showcase-section">
-    <h2>States</h2>
+    <h2>Button — States</h2>
     <div class="button-row">
       <ui-button variant="primary">Default</ui-button>
       <ui-button variant="primary" [disabled]="true">Disabled</ui-button>
@@ -34,27 +34,69 @@
     </div>
   </section>
 
-  <!-- ── Interactive Demo ── -->
   <section class="showcase-section">
-    <h2>Interactive Demo</h2>
-    <p class="hint">Click the button to see the loading state in action (2s timeout)</p>
+    <h2>Button — Interactive Demo</h2>
+    <p class="hint">Click to see the loading state (2s timeout)</p>
     <div class="button-row">
-      <ui-button
-        variant="primary"
-        size="lg"
-        [loading]="isLoading()"
-        (click)="simulateLoading()"
-      >
+      <ui-button variant="primary" size="lg" [loading]="isLoading()" (click)="simulateLoading()">
         Save Changes
       </ui-button>
-      <ui-button
-        variant="outline"
-        size="lg"
-        [loading]="isLoading()"
-        (click)="simulateLoading()"
-      >
+      <ui-button variant="outline" size="lg" [loading]="isLoading()" (click)="simulateLoading()">
         Submit Form
       </ui-button>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <hr class="section-divider" />
+
+  <!-- ══════════════════════════════════════════════
+       INPUT SHOWCASE
+  ══════════════════════════════════════════════ -->
+
+  <section class="showcase-section">
+    <h2>Input — Types & Icons</h2>
+    <p class="hint">Each type gets a contextual icon automatically</p>
+    <div class="input-grid">
+      <ui-input label="Text" placeholder="Plain text field" type="text" />
+      <ui-input label="Search" placeholder="Search for something..." type="search" />
+      <ui-input label="Number" placeholder="Enter a number" type="number" />
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Input — Validation (type then click away)</h2>
+    <p class="hint">Errors only appear after you leave the field (on blur)</p>
+    <div class="input-grid">
+      <!--
+        (valueChange) — listens to the custom output() event we defined.
+        The parent receives a clean string value and runs its own validation.
+        The input component stays dumb — it just displays the error we give back.
+      -->
+      <ui-input
+        id="email-input"
+        label="Email"
+        placeholder="you@example.com"
+        type="email"
+        [error]="emailError()"
+        (valueChange)="validateEmail($event)"
+      />
+      <ui-input
+        id="password-input"
+        label="Password"
+        placeholder="Min. 8 characters"
+        type="password"
+        [error]="passwordError()"
+        (valueChange)="validatePassword($event)"
+      />
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Input — Disabled State</h2>
+    <div class="input-grid">
+      <ui-input label="Read-only Field" placeholder="Can't edit this" [disabled]="true" />
+      <ui-input label="Disabled Email" placeholder="also locked" type="email" [disabled]="true" />
     </div>
   </section>
 
