@@ -1,24 +1,15 @@
-/* ==========================================================================
-   Input Component Styles
-   ==========================================================================
-   All colors reference design tokens from :root in styles.scss.
-   State classes (.has-error, .is-disabled) are applied to the HOST element
-   via host bindings in the component class.
-   ========================================================================== */
+/* Input Component Styles */
 
-/* The host itself takes full width — inputs are block-level by convention */
 :host {
   display: block;
 }
 
-/* ── Wrapper: stacks label, field, and error vertically ── */
 .input-wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
 }
 
-/* ── Label text above the field ── */
 .input-label {
   font-size: var(--font-size-sm);
   font-weight: 500;
@@ -26,38 +17,31 @@
   display: block;
 }
 
-/* Remove default label styles (cursor etc.) */
 .input-label-wrapper {
   cursor: text;
   display: block;
 }
 
-/* ── The row containing icon + input ── */
 .input-field-row {
-  position: relative;   /* needed for absolute-positioned icon */
+  position: relative;
   display: flex;
   align-items: center;
 
-  /* When there's an icon, we add left padding to the input
-     so text doesn't overlap the icon */
   &.has-icon input {
     padding-left: 2.25rem;
   }
 }
 
-/* ── The icon (email ✉, password 🔒, etc.) ── */
 .input-icon {
   position: absolute;
   left: var(--spacing-sm);
   font-size: var(--font-size-base);
-  /* Muted color so it doesn't compete with user input text */
   color: var(--color-text-secondary);
-  pointer-events: none;  /* don't capture clicks — let them pass to the input */
+  pointer-events: none;
   user-select: none;
   line-height: 1;
 }
 
-/* ── The native <input> element ── */
 input {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -67,55 +51,47 @@ input {
   background-color: var(--color-bg-primary);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
-  outline: none;              /* we handle focus ring ourselves below */
+  outline: none;
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
     background-color var(--transition-fast);
 
-  /* Placeholder text color */
   &::placeholder {
     color: var(--color-text-disabled);
   }
 
-  /* ── FOCUS STATE ──
-     WHY we use :focus-within on the row rather than :focus on input:
-     It gives us more flexibility if we later add focus effects to the wrapper.
-     Here we use :focus directly since it's the only focusable element. */
   &:focus {
     border-color: var(--color-border-focus);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);  /* soft glow ring */
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
   }
 }
 
-/* ── ERROR STATE ──
-   Applied via :host(.has-error) — the class is set by host binding in TS.
-   WHY this approach over [ngClass]: cleaner, no Angular template dependency,
-   and the SCSS mirrors exactly what's in the DOM. */
+/* ── Error State ── */
 :host(.has-error) {
   .input-label {
-    color: var(--color-error);   /* label turns red too */
+    color: var(--color-error);
   }
 
   input {
     border-color: var(--color-error);
-    background-color: var(--color-error-light);  /* subtle red tint */
+    background-color: var(--color-error-light);
 
     &:focus {
       border-color: var(--color-error);
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);  /* red glow instead of indigo */
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
     }
   }
 
   .input-icon {
-    color: var(--color-error);   /* icon turns red too */
+    color: var(--color-error);
   }
 }
 
-/* ── DISABLED STATE ── */
+/* ── Disabled State ── */
 :host(.is-disabled) {
   opacity: 0.6;
-  pointer-events: none;   /* entire component is non-interactive */
+  pointer-events: none;
 
   input {
     background-color: var(--color-bg-tertiary);
@@ -123,11 +99,8 @@ input {
   }
 }
 
-/* ── ERROR MESSAGE TEXT ── */
 .input-error {
   font-size: var(--font-size-xs);
   color: var(--color-error);
   font-weight: 500;
-  /* WHY no animation: the role="alert" in the HTML already triggers
-     screen reader announcements. A fade-in could actually delay that. */
 }

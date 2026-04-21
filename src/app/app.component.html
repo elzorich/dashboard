@@ -51,6 +51,60 @@
   <hr class="section-divider" />
 
   <!-- ══════════════════════════════════════════════
+       BADGE SHOWCASE
+  ══════════════════════════════════════════════ -->
+
+  <section class="showcase-section">
+    <h2>Badge — Variants</h2>
+    <p class="hint">Semantic variants — consumer provides the text via ng-content</p>
+    <div class="badge-row">
+      <ui-badge variant="success">Active</ui-badge>
+      <ui-badge variant="error">Failed</ui-badge>
+      <ui-badge variant="warning">Pending</ui-badge>
+      <ui-badge variant="info">In Review</ui-badge>
+      <ui-badge variant="neutral">Draft</ui-badge>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Badge — Sizes</h2>
+    <div class="badge-row align-center">
+      <ui-badge variant="success" size="sm">sm · Active</ui-badge>
+      <ui-badge variant="success" size="md">md · Active</ui-badge>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Badge — In Context (Data Table Row)</h2>
+    <p class="hint">How badges look alongside real data</p>
+    <div class="mock-table">
+      <div class="mock-row">
+        <span class="mock-cell">Deploy #1041</span>
+        <span class="mock-cell mock-cell--secondary">main → prod</span>
+        <span class="mock-cell"><ui-badge variant="success">Deployed</ui-badge></span>
+      </div>
+      <div class="mock-row">
+        <span class="mock-cell">Deploy #1040</span>
+        <span class="mock-cell mock-cell--secondary">feature/auth → staging</span>
+        <span class="mock-cell"><ui-badge variant="warning">Pending</ui-badge></span>
+      </div>
+      <div class="mock-row">
+        <span class="mock-cell">Deploy #1039</span>
+        <span class="mock-cell mock-cell--secondary">hotfix/login → prod</span>
+        <span class="mock-cell"><ui-badge variant="error">Failed</ui-badge></span>
+      </div>
+      <div class="mock-row">
+        <span class="mock-cell">Deploy #1038</span>
+        <span class="mock-cell mock-cell--secondary">release/2.1 → prod</span>
+        <span class="mock-cell"><ui-badge variant="info">In Review</ui-badge></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- divider -->
+  <hr class="section-divider" />
+
+  <!-- ══════════════════════════════════════════════
        INPUT SHOWCASE
   ══════════════════════════════════════════════ -->
 

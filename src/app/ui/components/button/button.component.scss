@@ -1,9 +1,4 @@
-/* ==========================================================================
-   Button Component Styles
-   ==========================================================================
-   Uses design tokens from the global :root for consistency.
-   Each variant is a self-contained CSS modifier class (OCP in action).
-   ========================================================================== */
+/* Button Component Styles */
 
 :host {
   display: inline-block;
@@ -93,7 +88,7 @@ button {
   }
 }
 
-/* ── Disabled State ── */
+/* ── States ── */
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -101,13 +96,12 @@ button:disabled {
   box-shadow: none !important;
 }
 
-/* ── Focus Ring (Accessibility) ── */
 button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* ── Loading Spinner ── */
+/* ── Loading ── */
 .spinner {
   display: inline-block;
   width: 1em;
@@ -124,7 +118,6 @@ button:focus-visible {
   }
 }
 
-/* ── Visually Hidden (keeps button size stable during loading) ── */
 .visually-hidden {
   position: absolute;
   width: 1px;

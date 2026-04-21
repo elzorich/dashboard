@@ -1,63 +1,14 @@
-<!--
-  TEMPLATE WALKTHROUGH
-
-  Structure:
-    <div.input-wrapper>
-      <label>              ← accessibility: click label = focus input
-        <div.input-field-row>
-          <span.icon>      ← optional icon based on type (email, password, etc.)
-          <input>          ← the actual native input
-        </div>
-        <span.error-msg>   ← shown only when hasError() is true
-      </label>             ← label wraps everything = implicit for association
--->
-
 <div class="input-wrapper">
-
-  <!--
-    WHY <label> wraps the input:
-    There are two ways to associate a label with an input:
-      1. <label for="id">  +  <input id="id">  ← explicit association
-      2. <label><input /></label>               ← implicit (wrapping)
-
-    We use BOTH: the label wraps the input (implicit) AND we use
-    [for]="inputId" / [id]="inputId" (explicit). This maximises
-    screen reader and browser compatibility.
-  -->
   @if (label()) {
     <span class="input-label">{{ label() }}</span>
   }
 
   <label [for]="inputId" class="input-label-wrapper">
     <div class="input-field-row" [class.has-icon]="typeIcon()">
-
-      <!--
-        ICON:
-        Only shown when the type has an icon (email ✉, password 🔒, etc.)
-        aria-hidden="true" → screen readers skip this, they already know
-        the input type from the <input type="..."> attribute.
-      -->
       @if (typeIcon()) {
         <span class="input-icon" aria-hidden="true">{{ typeIcon() }}</span>
       }
 
-      <!--
-        THE NATIVE INPUT:
-
-        [id]="inputId"           → links to <label for="...">
-        [type]="type()"          → email, password, search, etc.
-        [placeholder]="placeholder()"
-        [disabled]="disabled()"  → native disabled = no interaction + browser styling
-        [attr.aria-invalid]      → tells screen readers the field has an error.
-                                   We use || null because aria-invalid="false"
-                                   is actually WORSE than no attribute at all —
-                                   null removes the attribute entirely.
-        [attr.aria-describedby]  → points to the error span's ID so screen
-                                   readers announce the error text automatically
-                                   when the user focuses this input.
-        (input)="onInput($event)"  → fires on every keystroke
-        (blur)="onBlur()"          → fires when user leaves the field
-      -->
       <input
         [id]="inputId"
         [type]="type()"
@@ -71,13 +22,6 @@
     </div>
   </label>
 
-  <!--
-    ERROR MESSAGE:
-    Only rendered when hasError() is true (there's an error AND user has touched the field).
-
-    [id]="inputId + '-error'"  → matches aria-describedby above
-    role="alert"               → screen reader announces this immediately when it appears
-  -->
   @if (hasError()) {
     <span
       class="input-error"
@@ -87,5 +31,4 @@
       ⚠ {{ error() }}
     </span>
   }
-
 </div>
