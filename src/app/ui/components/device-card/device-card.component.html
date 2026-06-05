@@ -1,0 +1,29 @@
+<mat-card class="device-card">
+  <mat-card-header>
+    <div class="header-top">
+      <mat-card-title class="device-name">{{ device().name }}</mat-card-title>
+      <ui-badge [variant]="badgeVariant()" size="sm">{{ statusLabel() }}</ui-badge>
+    </div>
+    <mat-card-subtitle class="device-location">
+      <mat-icon class="location-icon">location_on</mat-icon>
+      {{ device().location }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-divider />
+
+  <mat-card-content class="device-stats">
+    <div class="stat">
+      <mat-icon [class]="batteryClass()">{{ batteryIcon() }}</mat-icon>
+      <span>{{ device().batteryLevel }}%</span>
+    </div>
+    <div class="stat">
+      <mat-icon class="stat-icon">schedule</mat-icon>
+      <span>{{ device().lastSeen }}</span>
+    </div>
+    <div class="stat">
+      <mat-icon class="stat-icon">tag</mat-icon>
+      <span class="device-id">{{ device().id }}</span>
+    </div>
+  </mat-card-content>
+</mat-card>

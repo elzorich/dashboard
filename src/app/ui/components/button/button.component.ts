@@ -8,16 +8,6 @@ import {
 export type ButtonVariant = 'primary' | 'secondary' | 'outline';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
-/**
- * Presentational button component.
- *
- * @example
- * ```html
- * <ui-button variant="primary">Click me</ui-button>
- * <ui-button variant="outline" [loading]="isSaving()">Save</ui-button>
- * <ui-button variant="secondary" [disabled]="!form.valid">Submit</ui-button>
- * ```
- */
 @Component({
   selector: 'ui-button',
   templateUrl: './button.component.html',

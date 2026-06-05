@@ -1,106 +1,13 @@
-/* Input Component Styles */
-
 :host {
   display: block;
 }
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.input-label {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--color-text-primary);
-  display: block;
-}
-
-.input-label-wrapper {
-  cursor: text;
-  display: block;
-}
-
-.input-field-row {
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  &.has-icon input {
-    padding-left: 2.25rem;
-  }
-}
-
-.input-icon {
-  position: absolute;
-  left: var(--spacing-sm);
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-}
-
-input {
+.ui-input-field {
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  outline: none;
-  transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    background-color var(--transition-fast);
 
-  &::placeholder {
-    color: var(--color-text-disabled);
-  }
-
-  &:focus {
-    border-color: var(--color-border-focus);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
-  }
-}
-
-/* ── Error State ── */
-:host(.has-error) {
-  .input-label {
-    color: var(--color-error);
-  }
-
-  input {
-    border-color: var(--color-error);
-    background-color: var(--color-error-light);
-
-    &:focus {
-      border-color: var(--color-error);
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
-    }
-  }
-
-  .input-icon {
-    color: var(--color-error);
-  }
-}
-
-/* ── Disabled State ── */
-:host(.is-disabled) {
-  opacity: 0.6;
-  pointer-events: none;
-
-  input {
-    background-color: var(--color-bg-tertiary);
-    cursor: not-allowed;
-  }
-}
-
-.input-error {
-  font-size: var(--font-size-xs);
-  color: var(--color-error);
-  font-weight: 500;
+  // Override Material's primary colour with our design token
+  --mat-form-field-focus-active-indicator-color: var(--color-primary);
+  --mat-form-field-label-text-color: var(--color-text-secondary);
+  --mdc-outlined-text-field-focus-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-focus-label-text-color: var(--color-primary);
 }

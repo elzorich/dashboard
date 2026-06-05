@@ -1,8 +1,22 @@
 <main class="app-shell">
   <header class="page-header">
-    <h1>🚀 Design System Playground</h1>
-    <p>Task 2.1 + 2.2 — Button & Input Component Showcase</p>
+    <h1>Design System Playground</h1>
+    <p>Angular + Angular Material component showcase</p>
   </header>
+
+  <div class="dark-surface">
+    <section class="showcase-section">
+      <h2>Device Card — Angular Material + Design System</h2>
+      <p class="hint">MatCard + custom Badge + signals. Simulates a live robot fleet dashboard.</p>
+      <div class="device-grid">
+        @for (device of devices(); track device.id) {
+          <ui-device-card [device]="device" />
+        }
+      </div>
+    </section>
+  </div>
+
+  <hr class="section-divider" />
 
   <!-- ══════════════════════════════════════════════
        BUTTON SHOWCASE

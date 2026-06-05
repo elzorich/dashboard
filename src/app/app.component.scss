@@ -4,7 +4,7 @@
 }
 
 .app-shell {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: var(--spacing-2xl);
 }
@@ -67,6 +67,43 @@
   &.align-center {
     align-items: center;
   }
+}
+
+.dark-surface {
+  background: #121212;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+
+  // Material system tokens
+  --mat-sys-surface-container: #1e1e1e;
+  --mat-sys-surface-container-high: #2a2a2a;
+  --mat-sys-outline: rgba(255, 255, 255, 0.12);
+  --mat-sys-on-surface: #e0e0e0;
+  --mat-card-elevated-container-color: #1e1e1e;
+
+  // Design tokens — text
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: rgba(255, 255, 255, 0.55);
+  --color-text-disabled: rgba(255, 255, 255, 0.28);
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  // Neutral badge background — overrides the light #f3f4f6 default
+  --color-bg-tertiary: rgba(255, 255, 255, 0.1);
+
+  h2 {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .hint {
+    color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
 }
 
 /* Mock data table — preview how badges look in real context */

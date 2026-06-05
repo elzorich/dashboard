@@ -1,34 +1,25 @@
-<div class="input-wrapper">
+<mat-form-field [appearance]="appearance()" class="ui-input-field">
   @if (label()) {
-    <span class="input-label">{{ label() }}</span>
+    <mat-label>{{ label() }}</mat-label>
   }
 
-  <label [for]="inputId" class="input-label-wrapper">
-    <div class="input-field-row" [class.has-icon]="typeIcon()">
-      @if (typeIcon()) {
-        <span class="input-icon" aria-hidden="true">{{ typeIcon() }}</span>
-      }
-
-      <input
-        [id]="inputId"
-        [type]="type()"
-        [placeholder]="placeholder()"
-        [disabled]="disabled()"
-        [attr.aria-invalid]="hasError() || null"
-        [attr.aria-describedby]="hasError() ? inputId + '-error' : null"
-        (input)="onInput($event)"
-        (blur)="onBlur()"
-      />
-    </div>
-  </label>
-
-  @if (hasError()) {
-    <span
-      class="input-error"
-      [id]="inputId + '-error'"
-      role="alert"
-    >
-      ⚠ {{ error() }}
-    </span>
+  @if (iconName()) {
+    <mat-icon matPrefix>{{ iconName() }}</mat-icon>
   }
-</div>
+
+  <input
+    matInput
+    [id]="inputId"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [disabled]="isDisabled()"
+    [value]="value()"
+    [errorStateMatcher]="errorStateMatcher"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+  />
+
+  @if (error()) {
+    <mat-error>{{ error() }}</mat-error>
+  }
+</mat-form-field>
