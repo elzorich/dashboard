@@ -1,0 +1,96 @@
+.table-shell {
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: var(--spacing-lg);
+}
+
+.table-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: #f0f0f0;
+  white-space: nowrap;
+  margin: 0;
+}
+
+mat-progress-bar {
+  --mdc-linear-progress-active-indicator-color: var(--color-primary);
+  --mdc-linear-progress-track-color: rgba(99, 102, 241, 0.15);
+}
+
+.table-viewport {
+  height: 364px; // shows exactly 7 rows at 52px each
+}
+
+.inspection-table {
+  width: 100%;
+  background: transparent !important;
+
+  th.mat-header-cell {
+    background: #1a1a1a;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  td.mat-cell {
+    color: #e0e0e0;
+    font-size: var(--font-size-sm);
+    border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  tr.mat-row:hover td {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .mat-sort-header-arrow {
+    color: rgba(255, 255, 255, 0.3) !important;
+  }
+}
+
+.cell--mono {
+  font-family: monospace;
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.cell--secondary {
+  color: rgba(255, 255, 255, 0.55) !important;
+  font-size: var(--font-size-xs);
+}
+
+.cell--critical {
+  color: var(--color-error) !important;
+  font-weight: 600;
+}
+
+.no-data {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: var(--font-size-sm);
+}
+
+.table-footer {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.row-count {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.35);
+}

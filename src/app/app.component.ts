@@ -4,11 +4,12 @@ import { ButtonComponent } from './ui/components/button';
 import { InputComponent } from './ui/components/input';
 import { BadgeComponent } from './ui/components/badge';
 import { DeviceCardComponent, type Device } from './ui/components/device-card';
+import { InspectionTableComponent } from './features/dashboard/inspection-table/inspection-table.component';
 import { email, minLength, required, validate } from './shared/validators';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonComponent, InputComponent, BadgeComponent, DeviceCardComponent],
+  imports: [RouterOutlet, ButtonComponent, InputComponent, BadgeComponent, DeviceCardComponent, InspectionTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
