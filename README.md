@@ -1,6 +1,6 @@
 # 🚀 Design System & Data Dashboard Playground
 
-An Angular learning project focused on **component architecture**, **state management**, and **real-world frontend patterns**.
+An Angular project focused on **component architecture**, **state management**, and **real-world frontend patterns**.
 
 ## 🎯 Purpose
 
